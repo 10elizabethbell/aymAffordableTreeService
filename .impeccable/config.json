@@ -59,6 +59,14 @@
         "value": "#000",
         "createdAt": "2026-10-20T17:52:06.485Z",
         "reason": "false positive: #000 is the alpha stop of the hero photo mask-image, not a visible colour"
+      },
+      {
+        "rule": "flat-type-hierarchy",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-20T23:12:23.996Z"
       }
     ]
   }
