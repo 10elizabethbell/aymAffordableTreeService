@@ -89,14 +89,14 @@ section{padding:64px 0}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:64px;padding-top:max(8px,env(safe-area-inset-top))}
 .brand{display:flex;flex-direction:column;justify-content:center;min-height:44px;text-decoration:none;line-height:1}
 .brand b{font:400 22px/1 var(--display);letter-spacing:.02em;color:var(--green)}
-.brand span{font:600 11px/1 var(--text);letter-spacing:.08em;white-space:nowrap;text-transform:uppercase;color:var(--soft);margin-top:5px}
+.brand span{font:600 12px/1 var(--text);letter-spacing:.06em;white-space:nowrap;text-transform:uppercase;color:var(--soft);margin-top:5px}
 .tel{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 2px;font:400 17px/1 var(--display);text-decoration:none;white-space:nowrap}
 .tel svg{width:18px;height:18px;flex:none;color:var(--amber-ink)}
 
 /* ---------- Hero: their crane truck under a deep-green overlay ---------- */
 .hero{padding:0;position:relative;background:var(--deep);color:var(--on-dark);overflow:hidden;isolation:isolate}
 .hero-art{position:absolute;inset:0;z-index:-2}
-.hero-art img{width:100%;height:100%;object-fit:cover;object-position:58% 40%}
+.hero-art img{width:100%;height:100%;object-fit:cover;object-position:58% 50%}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(14,48,33,.84) 0%,rgba(14,48,33,.76) 50%,rgba(14,48,33,.9) 100%)}
 .hero-copy{display:grid;gap:20px;justify-items:start;padding-top:56px;padding-bottom:64px}
 .hero h1{color:#fff;font-size:clamp(42px,12vw,80px);line-height:1.02;max-width:11ch}
@@ -127,15 +127,16 @@ section{padding:64px 0}
 .points{list-style:none;margin:24px 0 0;padding:0;display:grid}
 .points li{display:flex;align-items:center;gap:14px;padding:12px 0;font:400 clamp(19px,5vw,22px)/1.2 var(--display);color:var(--ink)}
 .points li+li{border-top:1px solid var(--line)}
-.points li::before{content:"";width:10px;height:10px;flex:none;border-radius:50%;background:var(--amber)}
-.photo{margin:0;border-radius:var(--r-card);overflow:hidden;background:var(--green);aspect-ratio:941/592}
+.points li::before{content:"";width:10px;height:10px;flex:none;border-radius:50%;background:var(--green)}
+.photo{margin:0;border-radius:var(--r-card);overflow:hidden;background:var(--green);aspect-ratio:941/740}
 .photo img{width:100%;height:100%;object-fit:cover}
 .fb{margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:76px;padding:14px 16px 14px 22px;border-radius:20px;background:var(--green);color:var(--on-dark);text-decoration:none;font:400 clamp(19px,5.2vw,22px)/1.2 var(--display)}
 .fb:hover,.fb:focus-visible{outline:none;box-shadow:none}
 .fb .lbl{display:flex;align-items:center;gap:14px}
+.fb .lbl span{text-wrap:balance}
 .fb .lbl svg{width:28px;height:28px;flex:none;color:var(--on-dark)}
 .fb .arrow{background:rgba(255,255,255,.14)}
-.fb:focus-visible .arrow{background:var(--amber);color:var(--ink);outline:3px solid var(--focus);outline-offset:3px}
+.fb:focus-visible .arrow{background:var(--amber);color:var(--ink);outline:3px solid var(--amber);outline-offset:3px}
 
 /* ---------- How it works ---------- */
 .steps{list-style:none;margin:36px 0 0;padding:0;display:grid;gap:24px;counter-reset:s}
@@ -161,15 +162,17 @@ input[type=text]:focus,textarea:focus{outline:none;border-color:var(--focus)}
 .chips label{display:inline-flex;align-items:center;min-height:48px;padding:0 18px;border-radius:var(--pill);background:var(--field);border:2px solid transparent;font:16px/1 var(--text);color:var(--ink);cursor:pointer;margin:0;transition:border-color .15s,background-color .15s,color .15s}
 .chips input:focus-visible+label{outline:3px solid var(--focus);outline-offset:3px}
 .chips input:checked+label{background:var(--ink);color:#fff}
-.err{display:none;font-size:15px;color:var(--error)}
+.err{display:none;font-size:16px;color:var(--error)}
 .field.bad .err{display:block}
 .field.bad input[type=text],.field.bad textarea,.field.bad input[type=text]:focus,.field.bad textarea:focus{border-color:var(--error)}
 form .btn-primary{width:100%}
 form .btn-primary:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
-.after{font-size:15px;color:var(--soft)}
-.sent{color:var(--ink);font-weight:600}
+.after{font-size:16px;color:var(--soft)}
+.sent{display:grid;gap:12px;color:var(--ink);font-weight:600}
+.btn-line{width:100%;background:transparent;color:var(--ink);border-color:var(--ink)}
 .sent a{white-space:nowrap;display:inline-block;padding:11px 0;margin:-11px 0}
 @media (max-width:380px){.chips label{padding:0 14px}}
+@media (max-width:359px){.tel svg{display:none}.tel{font-size:15px}.brand span{font-size:11px;letter-spacing:.02em}}
 
 /* ---------- Close ---------- */
 .close .who{margin-top:14px;font-size:clamp(18px,5vw,20px);color:var(--on-dark-soft)}
@@ -229,6 +232,8 @@ footer a{display:inline-flex;align-items:center;min-height:44px;color:var(--on-d
 .row:hover .arrow,.fb:hover .arrow{background:var(--amber);color:var(--ink)}
 input[type=text]:hover,textarea:hover{border-color:var(--focus)}
 .chips label:hover{border-color:var(--focus)}
+.chips input:checked+label:hover{border-color:var(--amber)}
+.btn-line:hover{outline:2px solid var(--focus);outline-offset:2px}
 form .btn-primary:hover{outline:2px solid var(--focus);outline-offset:2px}
 .sent a:hover{color:var(--green)}
 .bigtel:hover{color:var(--amber)}
@@ -265,7 +270,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 
 <main id="top">
 <section class="hero" id="hero" aria-labelledby="h1">
-  <div class="hero-art" aria-hidden="true"><img src="img/truck.webp" alt="" width="941" height="592" fetchpriority="high"></div>
+  <div class="hero-art" aria-hidden="true"><img src="img/truck.webp" alt="" width="941" height="740" fetchpriority="high"></div>
   <div class="wrap hero-copy">
     <p class="eyebrow">Residential &amp; commercial</p>
     <h1 id="h1">Safe, fast tree work in <span class="accent">Little Falls.</span></h1>
@@ -318,15 +323,15 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
         <p class="lede">When a storm drops a limb on your roof, fence or driveway, call or text and we'll come out.</p>
       </div>
       <ul class="points">
-        <li>Storm damage cleanup</li>
+        <li>Fallen limbs on roofs and fences</li>
         <li>Emergency calls, 24/7</li>
         <li>Bucket truck and crane for high work</li>
       </ul>
     </div>
     <div class="rise">
-      <figure class="photo"><img src="img/truck-640.webp" srcset="img/truck-640.webp 640w, img/truck.webp 941w" sizes="(min-width:1024px) 560px, calc(100vw - 40px)" alt="AYM's white Peterbilt crane truck parked under tall trees beside a house" width="941" height="592" loading="lazy" decoding="async"></figure>
+      <figure class="photo"><img src="img/truck-640.webp" srcset="img/truck-640.webp 640w, img/truck.webp 941w" sizes="(min-width:1024px) 560px, calc(100vw - 40px)" alt="AYM's white Peterbilt crane truck with its boom raised under tall trees beside a house" width="941" height="740" loading="lazy" decoding="async"></figure>
       <a class="fb" href="https://www.facebook.com/profile.php?id=61588044986207" rel="noopener">
-        <span class="lbl"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4h-3V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v2.9h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg>Click to see more of our work.</span>
+        <span class="lbl"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4h-3V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v2.9h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg><span>Click to see more of our work.</span></span>
         <span class="arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></span>
       </a>
     </div>
@@ -352,7 +357,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
       <p class="lede">Not sure what it needs? Describe it and we'll tell you.</p>
     </div>
     <form id="quoteForm" class="rise" novalidate>
-      <fieldset class="field" id="f-job">
+      <fieldset class="field" id="f-job" aria-describedby="e-job">
         <legend>What do you need?</legend>
         <div class="chips">
           <input type="checkbox" name="job" id="j1" value="Tree removal"><label for="j1">Tree removal</label>
@@ -378,7 +383,8 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
         <textarea id="what" name="what" maxlength="600" placeholder="How big it is, how close to the house, if it's urgent…"></textarea>
       </div>
       <button class="btn btn-primary" type="submit"><svg aria-hidden="true"><use href="#i-chat"/></svg>Text this to AYM</button>
-      <p class="sent" id="sent" role="status" hidden>Didn't open your messages? Call us at <a href="tel:+12017072057">(201) 707-2057</a>.</p>
+      <div class="sent" id="sent" role="status" hidden><p>Didn't open your messages? Copy it and text it to <a href="tel:+12017072057">(201) 707-2057</a>.</p><button class="btn btn-line" type="button" id="copyMsg">Copy message</button></div>
+      <noscript><p class="after">Or call or text <a href="tel:+12017072057">(201) 707-2057</a>.</p></noscript>
       <p class="after">Opens your messages with this written out. Add photos of the tree before you send.</p>
     </form>
   </div>
@@ -388,7 +394,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
   <div class="wrap">
     <div class="rise">
       <h2 id="h-close">Don't wait, <span class="accent">call today.</span></h2>
-      <p class="who">A Y M Affordable Tree Service · Little Falls, NJ. Homes and businesses, free estimates.</p>
+      <p class="who">Homes and businesses in Little Falls, NJ. Free estimates.</p>
     </div>
     <a class="bigtel rise" href="tel:+12017072057"><svg aria-hidden="true"><use href="#i-phone"/></svg>(201) 707-2057</a>
   </div>
@@ -418,6 +424,10 @@ document.documentElement.classList.add('js');
 (function(){
   var h=document.getElementById('h1');
   if(!h||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  // wait (briefly) for Cal Sans so the letters don't reflow mid-bounce when the font swaps in
+  h.style.visibility='hidden';
+  if(document.fonts&&document.fonts.load){Promise.race([document.fonts.load('400 1em "Cal Sans"'),new Promise(function(r){setTimeout(r,700)})]).then(run)}else run();
+  function run(){
   var plain=h.innerHTML,i=0,last=null;
   h.setAttribute('aria-label',h.textContent.replace(/\s+/g,' ').trim());
   function split(node,into){
@@ -433,9 +443,12 @@ document.documentElement.classList.add('js');
       }else if(n.nodeType===1){var copy=n.cloneNode(false);split(n,copy);into.appendChild(copy)}
     });
   }
-  var frag=document.createDocumentFragment();split(h,frag);h.textContent='';h.appendChild(frag);
+  var frag=document.createDocumentFragment();split(h,frag);h.textContent='';h.appendChild(frag);h.style.visibility='';
   // once the last letter lands, put the plain heading back so kerning and text selection return
-  if(last)last.addEventListener('animationend',function(){h.innerHTML=plain;h.removeAttribute('aria-label')});
+  var done=false;function restore(){if(done)return;done=true;h.innerHTML=plain;h.removeAttribute('aria-label')}
+  if(last)last.addEventListener('animationend',restore);
+  setTimeout(restore,1000+i*20+300); // safety net if animationend never fires (hidden tab)
+  }
 })();
 
 /* ===== Service rows pre-tick the matching job in the form ===== */
@@ -451,6 +464,7 @@ document.documentElement.classList.add('js');
 /* ===== Estimate form: composes a text to AYM ===== */
 (function(){
   var form=document.getElementById('quoteForm');if(!form)return;
+  var lastMsg='';
   function val(id){return document.getElementById(id).value.trim()}
   form.addEventListener('input',function(e){var f=e.target.closest('.field');if(f&&f.classList.contains('bad')&&(e.target.checked||(e.target.value||'').trim()))f.classList.remove('bad');if(e.target.id==='what'&&e.target.value.trim())document.getElementById('f-job').classList.remove('bad')});
   form.addEventListener('submit',function(e){
@@ -468,10 +482,13 @@ document.documentElement.classList.add('js');
     msg+='.';
     if(where)msg+=' Where: '+where+'.';
     if(what)msg+=' '+what;
+    lastMsg=msg;
     location.href='sms:'+CONFIG.PHONE+'?&body='+encodeURIComponent(msg);
     // if no messages app opened (desktop, some in-app browsers), say what to do instead
     setTimeout(function(){document.getElementById('sent').hidden=false},900);
   });
+  // clipboard can be blocked in in-app browsers, so fall back to a prompt they can copy from
+  document.getElementById('copyMsg').addEventListener('click',function(){var b=this;(navigator.clipboard?navigator.clipboard.writeText(lastMsg):Promise.reject()).then(function(){b.textContent='Copied'},function(){prompt('Copy this message:',lastMsg)})});
 })();
 
 /* ===== Floating text circle: shows after the hero, hides while the form is on screen ===== */

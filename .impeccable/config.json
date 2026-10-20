@@ -1,0 +1,17 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "repeating-stripes-gradient",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-20T17:43:50.873Z",
+        "reason": "pitch-site house style: faint diagonal band texture chosen by Ellie 2026-10-19 (calm-photo-style.md item 2)"
+      }
+    ]
+  }
+}
