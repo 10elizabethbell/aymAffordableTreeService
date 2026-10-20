@@ -5,9 +5,9 @@
 ## What's built
 - One page, `index.html`, single file, phone first. Sections: header (AYM wordmark + tap-to-call number top right), hero, "We treat your yard like our own" (five flyer claims), services (six rows on green, each pre-ticks its job in the form), storm damage ("Trees don't care about your schedule.", three points, the truck photo, then the Facebook link "Click to see more of our work."), How it works (3 steps), "Tell us about the tree" estimate form, closing band ("Don't wait, call today." + big number), footer.
 - Calm band style in AYM colours: paper `#f5f6f2`, truck-door green `#1f5a3c`, deep forest green `#0e3021` (diagonal-line texture on How it works and footer), marker-light amber `#f5a524` as the one accent (fills only, deep green text on it; `#874a00` when it must be text on light). Cal Sans display, system body 16/1.7.
-- Hero: their own crane truck photo (Facebook profile picture) under a deep-green overlay. Phones: full-bleed behind the text. Desktop (1024+): photo on the right ~60%, masked into solid green behind the text, so it shows at about its native size and stays sharp. White text measured at 6.6:1 or better by pixel sampling.
+- Hero: their own crane truck photo (Facebook profile picture) under a deep-green overlay. Phones: full-bleed behind the text. Desktop (1024+): photo on the right ~60%, masked into solid green behind the text, at about its native size. The crop is the top 740px of the 941×936 original: full crane boom, licence plate below the cut. White text measured by pixel sampling at 6.75:1 (phone) and 11:1 (desktop).
 - Motion: H1 letter bounce-in (restores the plain H1 after), 12px fade-up for content below the first screen, floating amber text circle (shows after the hero, hides over the form). All off under reduced motion; everything visible with JS off.
-- Contact: `tel:+12017072057` top right and in the closing band; hero "Text us" and the float open SMS with "Hi AYM, I found your website. I need help with a tree: ". The form composes "Hi AYM, this is <name>. I'd like a free estimate for: <jobs>. Where: <town>. <notes>" and reminds them to add photos of the tree. No email anywhere (none exists).
+- Contact: `tel:+12017072057` top right and in the closing band; hero "Text us" and the float open SMS with "Hi AYM, I found your website. I need help with a tree: ". The form composes "Hi AYM, this is <name>. I'd like a free estimate for: <jobs>. Where: <town>. <notes>" and reminds them to add photos of the tree. If Messages doesn't open, a status line offers the number and a "Copy message" button (falls back to a prompt where clipboard is blocked). No email anywhere (none exists).
 - Favicon / home-screen icon: "AYM" in the site's lettering on green with an amber bar (no logo file exists). `og.png` is a 1200×630 capture of the hero.
 
 ## Assumptions I made
@@ -21,7 +21,7 @@
 
 ## Placeholders and gaps
 - **Only one photo** (the truck). No job photos, no before/afters, no logo. The Facebook timeline is login-only and the group "flyer" link returned the group's stock cover image, not the flyer.
-- Licence plate on the truck cropped out (bottom of the photo removed). Raw originals stay in `src-assets/` (git-ignored).
+- Licence plate on the truck cropped out (bottom ~200px of the photo removed). Raw originals stay in `src-assets/` (git-ignored).
 - No email, hours, town list, reviews or prices. Nothing about them is on the page.
 
 ## Questions for the owner
@@ -38,6 +38,11 @@
 - **Runner-up signature motion (opt-in):** falling leaves / sawdust that drift across the hero and scatter from the finger, settling into a pile along the hero's bottom edge. Other worlds considered: chainsaw-cut wood grain rings, a swaying canopy, a stump being ground away under the finger, bark texture.
 - A "storm season" seasonal banner line in the storm section (Muse flagged storm cleanup as the winter hook).
 - Self-host Cal Sans (woff2 + preload) so first paint in Facebook's in-app browser doesn't wait on Google Fonts.
+
+## Impeccable sweep (done 2026-10-20)
+Every mode except live/onboard/init/document/extract/shape/craft/overdrive, plus the finish reviewer. Applied: full-boom crop and sharper desktop hero, copy-message fallback, 320px header overflow fix, visible focus ring on the Facebook row, amber hover on checked chips, `aria-describedby` on the job group, no-JS call/text line in the form, bounce-in waits up to 700ms for Cal Sans and has a restore timeout, brand subtitle 12px, error/help text 16px, storm list de-duplicated, closing line no longer repeats the footer, green list dots (fewer amber marks).
+Kept on purpose (Impeccable flags them, Ellie chose them): eyebrow pills, H1 bounce-in, floating text circle, Cal Sans from Google Fonts, the diagonal band texture (detector ignore stored in `.impeccable/config.json`). Detector's "flat type hierarchy" left standing: the close steps are UI sizes (14/16/17/18/20); headings run 30–80px.
+Not applied: "See more of our work on Facebook" label (house rule wants "Click to see more of my/our work."); chip "pop" on pre-select; tighter trust-band padding; non-blocking Cal Sans load.
 
 ## Not verified
 - Real-device touch, and the SMS handoff on iOS/Android and inside Facebook's in-app browser (tested in Chromium and WebKit via Playwright only).
